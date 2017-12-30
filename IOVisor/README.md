@@ -1,4 +1,4 @@
-# Installation Indstructions
+# Installation Instructions
 Setting up IO Visor environment
 
 a.        Upgrading to Linux Kernel 4.8.0
