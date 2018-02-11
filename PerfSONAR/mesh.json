@@ -1,0 +1,136 @@
+{
+   "tests" : [
+      {
+         "description" : "BES Throughput Testing",
+         "members" : {
+            "members" : [
+               "203.80.21.4",
+               "103.22.221.62"
+            ],
+            "type" : "mesh"
+         },
+         "parameters" : {
+            "duration" : "20",
+            "tool" : "bwctl/iperf3",
+            "omit_interval" : "5",
+            "interval" : "28800",
+            "type" : "perfsonarbuoy/bwctl",
+            "force_bidirectional" : "1",
+            "random_start_percentage" : "25",
+            "protocol" : "tcp"
+         }
+      },
+      {
+         "members" : {
+            "members" : [
+               "203.80.21.4",
+               "103.22.221.62"
+            ],
+            "type" : "mesh"
+         },
+         "description" : "BES Latency Testing",
+         "parameters" : {
+            "loss_threshold" : "10",
+            "session_count" : "10800",
+            "packet_interval" : "0.1",
+            "force_bidirectional" : "1",
+            "packet_padding" : "0",
+            "type" : "perfsonarbuoy/owamp",
+            "bucket_width" : "0.0001",
+            "sample_count" : "600"
+         }
+      },
+      {
+         "parameters" : {
+            "pause" : "0",
+            "waittime" : "5",
+            "test_interval" : "600",
+            "type" : "traceroute",
+            "protocol" : "udp",
+            "timeout" : "30",
+            "packet_size" : "40"
+         },
+         "members" : {
+            "type" : "mesh",
+            "members" : [
+               "203.80.21.4",
+               "103.22.221.62"
+            ]
+         },
+         "description" : "BES Traceroute Testing"
+      }
+   ],
+   "organizations" : [
+      {
+         "sites" : [
+            {
+               "hosts" : [
+                  {
+                     "measurement_archives" : [
+                        {
+                           "type" : "perfsonarbuoy/bwctl",
+                           "write_url" : "http://203.80.21.4/esmond/perfsonar/archive",
+                           "read_url" : "http://203.80.21.4/esmond/perfsonar/archive"
+                        },
+                        {
+                           "type" : "perfsonarbuoy/owamp",
+                           "read_url" : "http://203.80.21.4/esmond/perfsonar/archive",
+                           "write_url" : "http://203.80.21.4/esmond/perfsonar/archive"
+                        },
+                        {
+                           "type" : "traceroute",
+                           "write_url" : "http://203.80.21.4/esmond/perfsonar/archive",
+                           "read_url" : "http://203.80.21.4/esmond/perfsonar/archive"
+                        }
+                     ],
+                     "addresses" : [
+                        "203.80.21.4"
+                     ],
+                     "description" : "203.80.21.4"
+                  }
+               ]
+            }
+         ],
+         "description" : "UM-MY Site"
+      },
+      {
+         "description" : "NUC",
+         "sites" : [
+            {
+               "hosts" : [
+                  {
+                     "addresses" : [
+                        "103.22.221.62"
+                     ],
+                     "description" : "103.22.221.62",
+                     "measurement_archives" : [
+                        {
+                           "read_url" : "http://103.22.221.62/esmond/perfsonar/archive",
+                           "write_url" : "http://103.22.221.62/esmond/perfsonar/archive",
+                           "type" : "perfsonarbuoy/bwctl"
+                        },
+                        {
+                           "type" : "perfsonarbuoy/owamp",
+                           "read_url" : "http://103.22.221.62/esmond/perfsonar/archive",
+                           "write_url" : "http://103.22.221.62/esmond/perfsonar/archive"
+                        },
+                        {
+                           "type" : "traceroute",
+                           "read_url" : "http://103.22.221.62/esmond/perfsonar/archive",
+                           "write_url" : "http://103.22.221.62/esmond/perfsonar/archive"
+                        }
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   ],
+   "description" : "NETCS perfSONAR Mesh",
+   "administrators" : [
+      {
+         "name" : "netcs-admin",
+         "email" : "ahmad@smartx.kr"
+      }
+   ]
+}
