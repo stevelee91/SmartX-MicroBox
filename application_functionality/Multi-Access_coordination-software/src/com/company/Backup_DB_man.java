@@ -15,9 +15,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Backup_DB_man {
-    static String DB_IP = "jdbc:mysql://203.237.53.132?autoReconnect=true&useSSL=false";
-    static String DB_ID = "mooc";
-    static String DB_PW = "mooc";
+    static String DB_IP = "jdbc:mysql:<DB IP>?autoReconnect=true&useSSL=false";
+    static String DB_ID = "<DB ID>";
+    static String DB_PW = "<DB_PW>";
     Resource_info resource_info = Resource_info.getInstance();
     List<Resource_info.Device_info> D_info = resource_info.getD_info();
     List<Resource_info.Host_info> Host_list = resource_info.getHost_list();

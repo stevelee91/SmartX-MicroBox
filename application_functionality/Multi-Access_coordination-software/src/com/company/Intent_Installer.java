@@ -24,11 +24,11 @@ public class Intent_Installer {
     String[] Src_Dst_Mac = resource_info.getSrc_Dst_Mac();
     String Path = null;
 
-    private static String USER_ID ="mooc";
-    private static String IP="203.237.53.130";
-    private static String PASSWORD="mooc";
-    public static String Controoler_IP="203.237.53.130";
-    public static String Controller_IP_Port="203.237.53.130:8181";
+    private static String USER_ID ="<Controller VM User_ID>";
+    private static String IP="<Controller VM IP>";
+    private static String PASSWORD="<Controller VM PW>";
+    public static String Controoler_IP="<ONOS IP>";
+    public static String Controller_IP_Port="<ONOS IP>:8181";
     public static String Controller_ID="karaf";
     public static String Controller_Pw="karaf";
 
