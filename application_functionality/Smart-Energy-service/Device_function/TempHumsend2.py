@@ -13,7 +13,7 @@ from time import localtime, strftime
 
 
 class EdgeX:
-    def __init__(self, ip='203.237.53.76'):
+    def __init__(self, ip='IoT-Cloud Hub IP address'):
         self.ip = ip
         self.port = 48080
         self.metaIp = ip
@@ -78,7 +78,7 @@ while True:
     if t <= 35:
         print 'Temp={0:0.1f}*C Humidity={1:0.1f}%'.format(t, h)
 
-        url = "http://203.237.53.76:48080/api/v1/event"
+        url = "http://IoT-Cloud Hub IP address:48080/api/v1/event"
 
         payload = {"origin": 1471806386919, "device": "Device1",
                    "readings": [{"origin": 1471806386919, "name": "device", "value": 'Device1'},
@@ -95,5 +95,5 @@ while True:
 
         time.sleep(10)  ##delay time 100 seconds
 
-        url = "http://203.237.53.76:5000" ##flask에 api 요청
+        url = "http://IoT-Cloud Hub IP address:5000" ##flask에 api 요청
         response = requests.get(url, headers=headers)
