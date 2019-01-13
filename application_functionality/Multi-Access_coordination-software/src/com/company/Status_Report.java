@@ -12,11 +12,11 @@ import org.json.simple.JSONObject;
 
 
 public class Status_Report {
-    private static String USER_ID ="mooc";
-    private static String IP="203.237.53.130";
-    private static String PASSWORD="mooc";
-    public static String Controoler_IP="203.237.53.130";
-    public static String Controller_IP_Port="203.237.53.130:8181";
+    private static String USER_ID ="<Controller VM User_ID>";
+    private static String IP="<Controller VM IP>";
+    private static String PASSWORD="<Controller VM PW>";
+    public static String Controoler_IP="<ONOS IP>";
+    public static String Controller_IP_Port="<ONOS IP>:8181";
     public static String Controller_ID="karaf";
     public static String Controller_Pw="karaf";
     Resource_info resource_info = Resource_info.getInstance();
@@ -123,7 +123,7 @@ public class Status_Report {
     }
 
     public void get_Host_info(List<Resource_info.Host_info> H_list) throws  Exception{
-        String DEVICE_API_URL= "http://203.237.53.130:8181/onos/v1/hosts";
+        String DEVICE_API_URL= "http://<ONOS IP>:8181/onos/v1/hosts";
         URL onos = null;
         String tIP;
         String buffer = URL_REQUEST(Controller_ID,Controller_Pw,DEVICE_API_URL,onos);
@@ -163,7 +163,7 @@ public class Status_Report {
     }
 
     public void get_Link_info(List<Resource_info.Link_info> L_list) throws  Exception{
-        String DEVICE_API_URL= "http://203.237.53.130:8181/onos/v1/links";
+        String DEVICE_API_URL= "http://<ONOS IP>:8181/onos/v1/links";
         URL onos = null;
         String tIP;
         String buffer = URL_REQUEST(Controller_ID,Controller_Pw,DEVICE_API_URL,onos);
@@ -202,7 +202,7 @@ public class Status_Report {
         input[1] = input[1].replace(":","%3A");
         input[1] = input[1].replace("/","%2F");
 
-        String DEVICE_API_URL= "http://203.237.53.130:8181/onos/v1/paths/"+input[0]+"/"+input[1];
+        String DEVICE_API_URL= "http://<ONOS IP>:8181/onos/v1/paths/"+input[0]+"/"+input[1];
         URL onos = null;
         int i, j;
         String buffer = URL_REQUEST(Controller_ID,Controller_Pw,DEVICE_API_URL,onos);
