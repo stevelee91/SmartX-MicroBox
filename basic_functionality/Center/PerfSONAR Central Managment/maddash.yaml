@@ -1,0 +1,49 @@
+checks:
+  NETCS_perfSONAR_Mesh_-_BES_Latency_Testing_-_Loss:
+    checkInterval: 1800
+    critical_description: Loss rate is >= 0.01
+    description: Loss from %row to %col
+    id: NETCS_perfSONAR_Mesh_-_BES_Latency_Testing_-_Loss
+    name: Loss
+    ok_description: Loss rate is <= 0
+    params:
+      command: /usr/lib/nagios/plugins/check_owdelay.pl -u %maUrl -w 0 -c 0.01 $
+      graphUrl:
+        103.22.221.62:
+          default: /perfsonar-graphs/?url=%maUrl&source=%row&dest=%col&agent=%r$
+        203.80.21.4:
+          default: /perfsonar-graphs/?url=%maUrl&source=%row&dest=%col&agent=%r$
+      maUrl:
+        103.22.221.62:
+          default: http://103.22.221.62/esmond/perfsonar/archive
+        203.80.21.4:
+          default: http://203.80.21.4/esmond/perfsonar/archive
+    retryAttempts: 1
+    retryInterval: 300
+    timeout: 60
+    type: net.es.maddash.checks.PSNagiosCheck
+    warning_description: Loss rate is >= 0
+  NETCS_perfSONAR_Mesh_-_BES_Latency_Testing_-_Loss_Alternate_MA:
+    checkInterval: 1800
+    critical_description: Loss rate is >= 0.01
+    description: Loss from %row to %col
+    id: NETCS_perfSONAR_Mesh_-_BES_Latency_Testing_-_Loss_Alternate_MA
+    name: Loss Alternate MA
+    ok_description: Loss rate is <= 0
+    params:
+      command: /usr/lib/nagios/plugins/check_owdelay.pl -u %maUrl -w 0 -c 0.01 $
+      graphUrl:
+        103.22.221.62:
+          default: /perfsonar-graphs/?url=%maUrl&source=%row&dest=%col&agent=%c$
+        203.80.21.4:
+          default: /perfsonar-graphs/?url=%maUrl&source=%row&dest=%col&agent=%c$
+      maUrl:
+        103.22.221.62:
+          default: http://203.80.21.4/esmond/perfsonar/archive
+        203.80.21.4:
+          default: http://103.22.221.62/esmond/perfsonar/archive
+    retryAttempts: 1
+    retryInterval: 300
+    timeout: 60
+    type: net.es.maddash.checks.PSNagiosCheck
+    warning_description: Loss rate is >= 0
