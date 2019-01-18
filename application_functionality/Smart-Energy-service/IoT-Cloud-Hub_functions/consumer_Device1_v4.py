@@ -83,13 +83,13 @@ while partitions == None or len(partitions) == 0:
                 weather_stat = 4
         if weather_stat=='Atmosphere':
                 weather_stat = 5
-        if weather_stat == 'Clear':
+        if weather_stat=='Clear':
                 weather_stat = 6
-        if weather_stat == 'Clouds':
+        if weather_stat=='Clouds':
                 weather_stat = 7
-        if weather_stat == 'Mist':
+        if weather_stat=='Mist':
                 weather_stat = 8
-        if weather_stat == 'Haze':
+        if weather_stat=='Haze':
                 weather_stat = 9
 
         print("%s,%s,%s,%s,%s,%s") % (temperature, humidity, Aircon_temp, ext_temperature, ext_humidity, weather_stat)
