@@ -8,7 +8,7 @@ Smart Energy service is one of the IoT-Cloud service examples based on kubernete
 * Ubuntu 16.04
 * Kubernetes
 
-## Deployment
+## Deployment application functionalities
 
 In this step, you should run following commands on IoT-Cloud Hub.
 
@@ -20,7 +20,7 @@ To deploy Smart Energy application functionalities
 
 $ ./Smart_Energy.sh
 
-## IoT Devices
+## IoT Devices functionalities
 
 In this step, you need to run following commands on IoT devices.
 
