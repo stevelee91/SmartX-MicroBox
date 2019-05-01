@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpu-load
+  labels:
+    app: cpu-load
+spec:
+  type: NodePort
+  ports:
+  - name: "cpu-load"
+    port: 5800
+    nodePort: 32113
+  selector:
+    app: cpu-load
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cpu-load
+spec:
+  template:
+    metadata:
+      labels:
+        app: cpu-load
+    spec:
+      containers:
+      - name: cpu-load
+        image: lshyeung/cpu-load
+        ports:
+        - containerPort: 5800
