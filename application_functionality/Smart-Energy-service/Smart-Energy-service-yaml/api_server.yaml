@@ -14,11 +14,14 @@ spec:
   selector:
     app: api-server
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-server
 spec:
+  selector:
+    matchLabels:
+      app: api-server       
   template:
     metadata:
       labels:

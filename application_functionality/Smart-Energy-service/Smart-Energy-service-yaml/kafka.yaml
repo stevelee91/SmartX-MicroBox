@@ -13,11 +13,15 @@ spec:
     app: kafka-broker
     brokerID: "1"
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-broker-1
 spec:
+  selector:
+    matchLabels:
+      app: kafka-broker
+      brokerID: "1"
   template:
     metadata:
       labels:
@@ -53,11 +57,15 @@ spec:
     app: kafka-broker
     brokerID: "2"
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-broker-2
 spec:
+  selector:
+    matchLabels:
+      app: kafka-broker
+      brokerID: "2"        
   template:
     metadata:
       labels:
@@ -93,11 +101,15 @@ spec:
     app: kafka-broker
     brokerID: "3"
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-broker-3
 spec:
+  selector:
+    matchLabels:
+      app: kafka-broker
+      brokerID: "3"
   template:
     metadata:
       labels:

@@ -14,11 +14,14 @@ spec:
   selector:
     app: cpu-load
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cpu-load
 spec:
+  selector:
+    matchLabels:
+      app: cpu-load
   template:
     metadata:
       labels:

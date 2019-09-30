@@ -14,11 +14,14 @@ spec:
   selector:
     app: edgex-mongo
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: edgex-mongo
 spec:
+  selector:
+    matchLabels:
+      app: edgex-mongo
   template:
     metadata:
       labels:
@@ -29,6 +32,7 @@ spec:
         image: edgexfoundry/docker-edgex-mongo
         ports:
         - containerPort: 27017
+                   
 ---
 apiVersion: v1
 kind: Service
@@ -54,11 +58,14 @@ spec:
   selector:
     app: edgex-core-consul
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: edgex-core-consul
 spec:
+  selector:
+    matchLabels:
+      app: edgex-core-consul
   template:
     metadata:
       labels:
@@ -88,11 +95,14 @@ spec:
   selector:
     app: edgex-core-command
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: edgex-core-command
 spec:
+  selector:
+    matchLabels:
+      app: edgex-core-command
   template:
     metadata:
       labels:
@@ -120,11 +130,14 @@ spec:
   selector:
     app: edgex-support-logging
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: edgex-support-logging
 spec:
+  selector:
+    matchLabels:
+      app: edgex-support-logging
   template:
     metadata:
       labels:
@@ -135,6 +148,7 @@ spec:
         image: edgexfoundry/docker-support-logging:0.2.1
         ports:
         - containerPort: 48061
+         
 ---         
 apiVersion: v1
 kind: Service
@@ -156,11 +170,14 @@ spec:
   selector:
     app: edgex-core-data
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: edgex-core-data
 spec:
+  selector:
+    matchLabels:
+      app: edgex-core-data
   template:
     metadata:
       labels:
@@ -172,6 +189,7 @@ spec:
         ports:
         - containerPort: 48080
         - containerPort: 5563
+         
 ---         
 apiVersion: v1
 kind: Service
@@ -189,11 +207,14 @@ spec:
   selector:
     app: edgex-core-metadata
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: edgex-core-metadata
 spec:
+  selector:
+    matchLabels:
+      app: edgex-core-metadata
   template:
     metadata:
       labels:
@@ -204,5 +225,5 @@ spec:
         image: edgexfoundry/docker-core-metadata:0.2.1
         ports:
         - containerPort: 48081
-         
+        
 

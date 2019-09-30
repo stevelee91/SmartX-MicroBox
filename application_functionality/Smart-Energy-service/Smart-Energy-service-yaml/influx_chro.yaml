@@ -14,11 +14,14 @@ spec:
   selector:
     app: influxdb
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: influxdb
 spec:
+  selector:
+    matchLabels:
+      app: influxdb
   template:
     metadata:
       labels:
@@ -47,11 +50,14 @@ spec:
   selector:
     app: chronograf
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: chronograf
 spec:
+  selector:
+    matchLabels:
+      app: chronograf
   template:
     metadata:
       labels:

@@ -12,11 +12,14 @@ spec:
   selector:
     app: kafka-zookeeper
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kafka-zookeeper
 spec:
+  selector:
+    matchLabels:
+      app: kafka-zookeeper
   template:
     metadata:
       labels:
